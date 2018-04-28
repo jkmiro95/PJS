@@ -1,0 +1,42 @@
+$balance-setter-btn-background: $blue;
+$balance-setter-btn-color: $white;
+$balance-setter-btn-hover-background: $white;
+$balance-setter-btn-hover-color: $blue;
+$balance-setter-label-color: $dark-blue;
+
+.balance-setter {
+  max-width: 600px;
+  margin: 0 auto;
+
+  button {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 20px auto 0;
+    font-size: 18px;
+    background: $balance-setter-btn-background;
+    color: $balance-setter-btn-color;
+    font-weight: 700;
+    border: 2px solid $balance-setter-btn-background;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background: $balance-setter-btn-hover-background;
+      color: $balance-setter-btn-hover-color;
+    }
+  }
+
+  input {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 18px;
+  }
+
+  label {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: $balance-setter-label-color;
+    font-weight: 700;
+  }
+}

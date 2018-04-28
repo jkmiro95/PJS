@@ -1,8 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { createStore, applyMiddleware, compose } from 'redux';
+import {Provider} from 'react-redux';
+import './styles/styles.scss';
+import App from './app';
 import registerServiceWorker from './registerServiceWorker';
+import { createLogger } from 'redux-logger';
+import reducer from './app/reducers';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const logger = createLogger({});
+
+const store = createStore(
+  reducer,
+  {
+    balance: {
+      current: 0,
+      currentSet: false
+    }
+  },
+  compose(applyMiddleware(logger)));
+
+window.store = store;
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'));
+
 registerServiceWorker();
