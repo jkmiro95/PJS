@@ -15,7 +15,12 @@ const store = createStore(
   {
     balance: {
       current: 0,
-      currentSet: false
+      currentSet: false,
+      future: 0
+    },
+    balanceChange: {
+      amount: 0,
+      description: ''
     }
   },
   compose(applyMiddleware(logger)));

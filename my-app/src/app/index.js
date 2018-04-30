@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BalanceDisplayer from './balance/BalanceDisplayer';
 import BalanceSetter from './balance/BalanceSetter';
+import FutureBalanceDisplayer from './changeBalance/FutureBalanceDisplayer';
+import BalanceChangeSetter from './changeBalance/BalanceChangeSetter';
 
 
 class App extends Component {
 
   addSetter() {
     if (this.props.currentSet) {
-      return false;
+      return (
+        <div>
+          <BalanceChangeSetter />
+          <FutureBalanceDisplayer />
+        </div>
+      )
     } else {
       return <BalanceSetter />
     }

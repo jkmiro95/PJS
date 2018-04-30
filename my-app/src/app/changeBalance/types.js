@@ -1,0 +1,1 @@
+export const SET_BALANCE_CHANGE = 'SET_BALANCE_CHANGE';

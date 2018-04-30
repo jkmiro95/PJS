@@ -6,6 +6,7 @@ const balanceReducer = (state = {}, action) => {
   switch(action.type) {
     case actionType.SET_BALANCE:
       newState.current = action.value;
+      newState.future = action.value;
       newState.currentSet = true;
 
       return {...newState};
