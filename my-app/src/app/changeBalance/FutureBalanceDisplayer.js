@@ -1,23 +1,59 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { deleteBalanceChange } from "./actions";
+import {bindActionCreators} from 'redux';
 
 class FutureBalanceDisplayer extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.showBalanceChange= this.showBalanceChange.bind(this);
+    this.calculateFutureBalance = this.calculateFutureBalance.bind(this);
+  }
+
+  showBalanceChange(change) {
+    return (
+      <li key={change.key}>
+        <span className="description">{ change.description } </span>
+        <span className="value">{ change.amount }</span>
+        <button className="delete" onClick={() =>
+          this.props.dispatch(deleteBalanceChange(change.key))
+        }>Wyjeb</button>
+      </li>
+    )
+  }
+
+  calculateFutureBalance(balanceChange) {
+    let tempAmount = parseFloat(this.props.futureBalance);
+    for (let i = 0; i < balanceChange.length; i++) {
+      tempAmount += parseFloat(balanceChange[i].amount);
+    }
+    return tempAmount;
+  }
+
+
   render() {
+    let changes = this.props.balanceChange.map(this.showBalanceChange);
+
+    let changeAmount = this.calculateFutureBalance(this.props.balanceChange);
+
     return (
       <div className='balance-displayer'>
-        { this.props.balanceChange + ' - ' + this.props.balanceChangeDescription }
-        <br />
-        { parseInt(this.props.futureBalance) + parseInt(this.props.balanceChange)}
+        <ul className="changes">
+          { changes }
+        </ul>
+        { changeAmount }
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, dispatch) {
   return {
+    actions: bindActionCreators(Object.assign({}, deleteBalanceChange), dispatch),
     futureBalance: state.balance.future,
-    balanceChange: state.balanceChange.amount,
-    balanceChangeDescription: state.balanceChange.description
+    balanceChange: state.balanceChange.changeArray,
   }
 }
 

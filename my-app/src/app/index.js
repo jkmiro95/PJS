@@ -24,8 +24,16 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <BalanceDisplayer />
-        { this.addSetter() }
+        <header className="header">
+          <h1>Nazwa apki</h1>
+        </header>
+        <main className="main">
+          <BalanceDisplayer />
+          { this.addSetter() }
+        </main>
+        <footer className="footer">
+          &copy; Copyright czy coś tam.
+        </footer>
       </div>
     );
   }

@@ -4,7 +4,7 @@ import changeBalanceReducer from './changeBalance/reducers';
 
 const appReducer = combineReducers({
   balance: balanceReducer,
-  balanceChange: changeBalanceReducer
+  balanceChange: changeBalanceReducer,
 });
 
 export default appReducer;

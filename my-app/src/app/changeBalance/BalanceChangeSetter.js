@@ -8,21 +8,37 @@ class BalanceChangeSetter extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.createKey = this.createKey.bind(this);
+  }
+
+  createKey() {
+    let key = Math.floor(Math.random() * 1000000000);
+    const changeBalance = this.props.changeBalance;
+
+    for (let i=0; i < changeBalance; i++) {
+      if (changeBalance[i].key === key) {
+        this.createKey();
+      }
+    }
+
+    return key;
   }
 
   handleSubmit(event) {
     let input = this.refs.input;
     let description = this.refs.description;
+    let key = this.createKey();
     event.preventDefault();
-    this.props.dispatch(setBalanceChange(input.value, description.value))
+    this.props.dispatch(setBalanceChange(input.value, description.value, key));
+    this.form.reset();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="balance-setter">
-        <label for="balance">Ile hajsu podpierdoli/przepierdoli?</label>
+      <form onSubmit={this.handleSubmit} className="balance-setter" ref={ (el) => this.form = el}>
+        <label htmlFor="balance">Ile hajsu podpierdoli/przepierdoli?</label>
         <input ref="input" type="number" id="balance" />
-        <label for="balance">Czemu hajsy podpierdoli/przepierdoli?</label>
+        <label htmlFor="balance">Czemu hajsy podpierdoli/przepierdoli?</label>
         <input ref="description" type="text" id="balance" />
         <button type="submit">Submit</button>
       </form>
@@ -33,7 +49,8 @@ class BalanceChangeSetter extends Component {
 function mapStateToProps(state, dispatch) {
   return {
     actions: bindActionCreators(Object.assign({}, setBalanceChange), dispatch),
-    futureBalance: state.balance.future
+    futureBalance: state.balance.future,
+    changeBalance: state.balanceChange.changeArray
   }
 }
 

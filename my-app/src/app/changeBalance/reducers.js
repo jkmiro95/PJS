@@ -5,8 +5,14 @@ const changeBalanceReducer = (state = {}, action) => {
 
   switch(action.type) {
     case actionType.SET_BALANCE_CHANGE:
-      newState.amount = action.value;
-      newState.description = action.description;
+      newState.changeArray = [...newState.changeArray, { amount: action.value, description: action.description, key: action.key }];
+
+      return {...newState};
+
+    case actionType.DELETE_BALANCE_CHANGE:
+       newState.changeArray = newState.changeArray.filter((el) => {
+        return el.key !== action.key
+      });
 
       return {...newState};
 

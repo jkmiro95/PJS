@@ -19,7 +19,7 @@ class BalanceSetter extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="balance-setter">
-        <label for="balance">Ile hajsu ma?</label>
+        <label htmlFor="balance">Ile hajsu ma?</label>
         <input ref="input" type="number" id="balance" />
         <button type="submit">Submit</button>
       </form>

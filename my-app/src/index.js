@@ -19,8 +19,7 @@ const store = createStore(
       future: 0
     },
     balanceChange: {
-      amount: 0,
-      description: ''
+      changeArray: []
     }
   },
   compose(applyMiddleware(logger)));
