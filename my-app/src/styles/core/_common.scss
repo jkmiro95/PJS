@@ -1,12 +1,10 @@
 $body-background: $white;
 $body-color: $black;
 
+* {
+  box-sizing: border-box;
+}
 body {
   background: $body-background;
   color: $body-color;
-
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
 }

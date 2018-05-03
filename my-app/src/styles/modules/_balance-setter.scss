@@ -5,14 +5,19 @@ $balance-setter-btn-hover-color: $blue;
 $balance-setter-label-color: $dark-blue;
 
 .balance-setter {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 400px;
+  max-width: 50%;
+  margin: 0 $indent-default 0 0;
+
+  &-current {
+    margin-left: $indent-default;
+  }
 
   button {
     display: block;
-    width: 200px;
+    width: 400px;
     height: 50px;
-    margin: 20px auto 0;
+    margin: $indent-default auto 0;
     font-size: 18px;
     background: $balance-setter-btn-background;
     color: $balance-setter-btn-color;
@@ -30,11 +35,12 @@ $balance-setter-label-color: $dark-blue;
     height: 50px;
     padding: 0 20px;
     font-size: 18px;
+    margin-bottom: $indent-default;
   }
 
   label {
     display: block;
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 10px;
     color: $balance-setter-label-color;
     font-weight: 700;

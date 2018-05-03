@@ -1,0 +1,19 @@
+$header-background: $blue;
+$header-color: $snow;
+
+.header {
+  width: 100%;
+  background: $header-background;
+
+  &-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 40px;
+    color: $header-color;
+    padding: $indent-default;
+  }
+}

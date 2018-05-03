@@ -5,7 +5,8 @@ class BalanceDisplayer extends Component {
   render() {
     return (
       <div className='balance-displayer'>
-        { this.props.currentBalance }
+        <span className="label">Aktualny stan konta: </span>
+        <span className="value">{ this.props.currentBalance }</span>
       </div>
     )
   }

@@ -39,11 +39,18 @@ class FutureBalanceDisplayer extends Component {
     let changeAmount = this.calculateFutureBalance(this.props.balanceChange);
 
     return (
-      <div className='balance-displayer'>
-        <ul className="changes">
+      <div className="changes">
+        <ul>
           { changes }
         </ul>
-        { changeAmount }
+        <div className='balance-displayer-future'>
+        <span className="label">
+          Przyszły stan konta:
+        </span>
+          <span className="value">
+          { changeAmount }
+        </span>
+        </div>
       </div>
     )
   }

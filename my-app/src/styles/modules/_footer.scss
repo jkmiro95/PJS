@@ -1,0 +1,14 @@
+$footer-background: $black;
+$footer-color: $snow;
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: $footer-height;
+  background: $footer-background;
+  color: $footer-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

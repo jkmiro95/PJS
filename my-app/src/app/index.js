@@ -11,7 +11,7 @@ class App extends Component {
   addSetter() {
     if (this.props.currentSet) {
       return (
-        <div>
+        <div className="wrapper">
           <BalanceChangeSetter />
           <FutureBalanceDisplayer />
         </div>
@@ -25,7 +25,9 @@ class App extends Component {
     return (
       <div className="container">
         <header className="header">
-          <h1>Nazwa apki</h1>
+          <div className="header-wrapper">
+            <h1>Nazwa apki</h1>
+          </div>
         </header>
         <main className="main">
           <BalanceDisplayer />

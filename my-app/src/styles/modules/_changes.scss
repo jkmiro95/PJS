@@ -1,0 +1,51 @@
+$delete-color: $red;
+
+.changes {
+  width: 300px;
+  max-width: 50%;
+  margin-left: $indent-default;
+  ul {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 $indent-default 0;
+    list-style-type: none;
+    li {
+      width: 100%;
+      position: relative;
+      padding: $indent-default 30px $indent-default $indent-default;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .delete {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        font-size: 0;
+        transform: translate(0, -50%);
+        cursor: pointer;
+
+        &, &:active, &:hover {
+          border: 0;
+          background: 0;
+          outline: 0;
+        }
+
+        &:before {
+          content: '\00D7';
+          font-size: 22px;
+          color: $delete-color;
+        }
+      }
+
+      .description {
+        margin-right: $indent-default;
+      }
+
+      .value {
+        font-size: 30px;
+
+      }
+    }
+  }
+}

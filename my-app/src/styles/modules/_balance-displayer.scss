@@ -1,0 +1,28 @@
+$balance-displayer-value-color: $blue;
+
+.balance-displayer {
+  top: $indent-default;
+
+  &-future {
+    bottom: 0;
+  }
+
+  &, &-future {
+    position: absolute;
+    right: $indent-default + 30px;
+
+    .label, .value {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+    .label {
+      font-size: 16px;
+      margin: 0 8px 8px 0;
+    }
+    .value {
+      font-size: 36px;
+      font-weight: 700;
+      color: $balance-displayer-value-color;
+    }
+  }
+}
