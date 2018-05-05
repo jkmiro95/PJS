@@ -45,7 +45,7 @@ class FutureBalanceDisplayer extends Component {
         </ul>
         <div className='balance-displayer-future'>
         <span className="label">
-          Przyszły stan konta:
+          Future balance:
         </span>
           <span className="value">
           { changeAmount }

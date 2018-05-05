@@ -36,9 +36,9 @@ class BalanceChangeSetter extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="balance-setter" ref={ (el) => this.form = el}>
-        <label htmlFor="balance">Ile hajsu podpierdoli/przepierdoli?</label>
+        <label htmlFor="balance">Enter amount of the balance change</label>
         <input ref="input" type="number" id="balance" />
-        <label htmlFor="balance">Czemu hajsy podpierdoli/przepierdoli?</label>
+        <label htmlFor="balance">Enter description of the balance change</label>
         <input ref="description" type="text" id="balance" />
         <button type="submit">Submit</button>
       </form>

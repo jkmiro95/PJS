@@ -26,7 +26,7 @@ class App extends Component {
       <div className="container">
         <header className="header">
           <div className="header-wrapper">
-            <h1>Nazwa apki</h1>
+            <h1>Balance predictor</h1>
           </div>
         </header>
         <main className="main">
@@ -34,7 +34,7 @@ class App extends Component {
           { this.addSetter() }
         </main>
         <footer className="footer">
-          &copy; Copyright czy coś tam.
+          &copy; Copyright Jakub Mirocha 2018.
         </footer>
       </div>
     );
