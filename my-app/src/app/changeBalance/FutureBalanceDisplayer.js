@@ -19,7 +19,7 @@ class FutureBalanceDisplayer extends Component {
         <span className="value">{ change.amount }</span>
         <button className="delete" onClick={() =>
           this.props.dispatch(deleteBalanceChange(change.key))
-        }>Wyjeb</button>
+        }>Delete</button>
       </li>
     )
   }
