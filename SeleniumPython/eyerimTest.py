@@ -38,6 +38,10 @@ class SeleniumCBT(unittest.TestCase):
         category_page = page.CategoryPage(self.driver)
         category_page.chooseProduct()
 
+        #add to cart
+        product_page = page.ProductPage(self.driver)
+        product_page.addProductTocart()
+
         self.test_result = 'pass'
         self.driver.quit()
 

@@ -7,4 +7,9 @@ class MainPageLocators(object):
 
 class CategoryPageLocators(object):
     random_product = str(random.randint(1,45))
-    PRODUCT_LINK = (By.CSS_SELECTOR, '.products-list > li:nth-of-type(' + random_product + ') > a > .image > img')
+    PRODUCT_LINK = (By.CSS_SELECTOR, '.products-list > li:nth-of-type(' + random_product + ') > a > .image')
+
+class ProductPageLocators(object):
+    PRESCRIPTION_LABEL = (By.ID, 'eyeris-prescription')
+    FRAME_ONLY = (By.ID, 'options[1000001]')
+    ADD_BUTTON = (By.ID, 'product-addtocart-button')
