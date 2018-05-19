@@ -50,6 +50,14 @@ class SeleniumCBT(unittest.TestCase):
         addressStep_page = page.AddressStep(self.driver)
         addressStep_page.fillForm()
 
+        #go to summary
+        paymentStep_page = page.PaymentStep(self.driver)
+        paymentStep_page.goToSummary()
+
+        #finalize order
+        summary_page = page.SummaryStep(self.driver)
+        summary_page.finalizeOrder()
+
         self.test_result = 'pass'
         self.driver.quit()
 

@@ -11,7 +11,7 @@ class CategoryPageLocators(object):
 
 class ProductPageLocators(object):
     PRESCRIPTION_LABEL = (By.ID, 'eyeris-prescription')
-    FRAME_ONLY = (By.ID, 'options[1000001]')
+    FRAME_ONLY = (By.CSS_SELECTOR, '#options-1000001-list > li:nth-of-type(1) > span')
     ADD_BUTTON = (By.ID, 'product-addtocart-button')
 
 class CartLocators(object):
@@ -27,3 +27,10 @@ class AddressStepLocators(object):
     POST_CODE = (By.ID, 'billing:postcode')
     TERMS_CONDITIONS = (By.CSS_SELECTOR, '.terms')
     PAYMENT_BUTTON = (By.CSS_SELECTOR, '#address-buttons-container > button')
+
+class PaymentStepLocators(object):
+    BANK_TRANSFER = (By.CSS_SELECTOR, '#checkout-payment-method-load > dt:nth-of-type(1) > label')
+    SUMMARY_BUTTON = (By.CSS_SELECTOR, '#payment-buttons-container > button')
+
+class SummaryStepLocators(object):
+    PAY_BUTTON = (By.CSS_SELECTOR, '#review-buttons-container > div > button')

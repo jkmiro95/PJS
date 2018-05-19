@@ -3,6 +3,8 @@ from locators import CategoryPageLocators
 from locators import ProductPageLocators
 from locators import CartLocators
 from locators import AddressStepLocators
+from locators import PaymentStepLocators
+from locators import SummaryStepLocators
 from selenium.webdriver.common.action_chains import ActionChains
 from random import randint
 
@@ -70,6 +72,17 @@ class AddressStep(BasePage):
         action.perform()
         payment_button.click()
 
+class PaymentStep(BasePage):
 
+    def goToSummary(self):
+        bank_transfer = self.driver.find_element(*PaymentStepLocators.BANK_TRANSFER)
+        summary_button = self.driver.find_element(*PaymentStepLocators.SUMMARY_BUTTON)
 
+        bank_transfer.click()
+        summary_button.click()
 
+class SummaryStep(BasePage):
+
+    def finalizeOrder(self):
+        pay_button = self.driver.find_element(*SummaryStepLocators.PAY_BUTTON)
+        pay_button.click()
