@@ -1,6 +1,11 @@
 from locators import MainPageLocators
 from locators import CategoryPageLocators
 from locators import ProductPageLocators
+from locators import CartLocators
+from locators import AddressStepLocators
+from selenium.webdriver.common.action_chains import ActionChains
+from random import randint
+
 class BasePage(object):
 
     def __init__(self, driver):
@@ -31,4 +36,40 @@ class ProductPage(BasePage):
             frame_only.click()
         add_button = self.driver.find_element(*ProductPageLocators.ADD_BUTTON)
         add_button.click()
+
+class Cart(BasePage):
+
+    def goToCheckout(self):
+        checkout_button = self.driver.find_element(*CartLocators.CHECKOUT_BUTTON)
+        checkout_button.click()
+
+class AddressStep(BasePage):
+
+    def fillForm(self):
+        first_name = self.driver.find_element(*AddressStepLocators.FIRST_NAME)
+        last_name = self.driver.find_element(*AddressStepLocators.LAST_NAME)
+        email = self.driver.find_element(*AddressStepLocators.EMAIL)
+        telephone = self.driver.find_element(*AddressStepLocators.TELEPHONE)
+        street = self.driver.find_element(*AddressStepLocators.STREET)
+        city = self.driver.find_element(*AddressStepLocators.CITY)
+        post_code = self.driver.find_element(*AddressStepLocators.POST_CODE)
+        terms_conditions = self.driver.find_element(*AddressStepLocators.TERMS_CONDITIONS)
+        payment_button = self.driver.find_element(*AddressStepLocators.PAYMENT_BUTTON)
+        random_number = str(randint(1, 99999))
+        action = ActionChains(self.driver)
+
+        first_name.send_keys("Test")
+        last_name.send_keys("Test")
+        email.send_keys("jakub.mirocha+testing" + random_number + "@hatimeria.pl")
+        telephone.send_keys("111222333")
+        street.send_keys("Test")
+        city.send_keys("Test")
+        post_code.send_keys("11222")
+        action.move_to_element_with_offset(terms_conditions, 23, 16)
+        action.click()
+        action.perform()
+        payment_button.click()
+
+
+
 

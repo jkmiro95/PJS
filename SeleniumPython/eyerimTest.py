@@ -42,6 +42,14 @@ class SeleniumCBT(unittest.TestCase):
         product_page = page.ProductPage(self.driver)
         product_page.addProductTocart()
 
+        #go to checkout
+        cart_page = page.Cart(self.driver)
+        cart_page.goToCheckout()
+
+        #go to payment method
+        addressStep_page = page.AddressStep(self.driver)
+        addressStep_page.fillForm()
+
         self.test_result = 'pass'
         self.driver.quit()
 
